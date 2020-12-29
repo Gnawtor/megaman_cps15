@@ -38,6 +38,10 @@ qsound_fifo_tail_offset = -$5FE0
 ;
 ; ==============================
 
+; Overwrite red text palette with new purple one
+ org $17AE
+ incbin "palettes/pal_megaman_regiontext2.bin"
+
  org $52EA	; Offset table for region text
  
 	dc.w	$E0, $E0, $E0, $E0, $E0, $E0		; Region and version
@@ -58,7 +62,7 @@ qsound_fifo_tail_offset = -$5FE0
 	dc.b	$11
 	dc.b	$3C
 	dc.b	$02
-	dc.b	"C P S  1 . 5"
+	dc.b	"C P S   1 . 5"
 	
 	dc.w	$0
 
@@ -92,11 +96,11 @@ qsound_fifo_tail_offset = -$5FE0
 	dc.b	$03
 	dc.b	$48
 	dc.b	$02
-	dc.b	"of being exposed to this game./"
+	dc.b	"of any sort of exposure to this game./"
 	
 	dc.b	$02
 	dc.b	$60
-	dc.b	$03
+	dc.b	$00
 	dc.b	"Another CPS 1.5 conversion brought to you by:/"
 	
 	dc.b	$05
@@ -125,7 +129,19 @@ qsound_fifo_tail_offset = -$5FE0
 
 ; ================================
 ; ================================	
+; Hijack FBI screen
 
+ org $1288B8
+ incbin	"palettes/pal_professor.bin"
+ incbin	"palettes/pal_winnersdont.bin"
+ incbin	"palettes/pal_professor_text.bin"
+
+ org $14E038
+ incbin "bgmap_fbiscreen.bin"
+ 
+; ================================	
+; ================================	
+ 
 ; Free space
  org $163C00
  
@@ -396,6 +412,15 @@ qsound_text1:
 	
 qsound_text2:
 	dc.b	"RAM OK"
-	dc.b	$0
+	dc.w	$0
+	
+; =============================
+
+
+
+
+
+
+
 	
 	
