@@ -1701,12 +1701,14 @@
 0036A0  move.w  #$0, D2
 0036A4  move.w  #$f000, D3
 0036A8  bra     $36b6
+
 0036AA  move.w  #$0, D1
 0036AE  move.w  #$f000, D2
 0036B2  move.w  #$0, D3
 0036B6  cmpi.l  #$5642194, D0
 0036BC  tst.b   ($83,A5)
 0036C0  bne     $36de
+
 0036C2  st      ($83,A5)
 0036C6  move.w  #$e0, D0
 0036CA  lea     (-$4f8,PC) ; ($31d4), A0
