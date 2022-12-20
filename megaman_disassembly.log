@@ -152,6 +152,7 @@
 000C1A  not.l   D0
 000C1C  move.l  D0, ($5c,A5)
 000C20  jmp     $e52.l
+
 000C26  lea     (A0), A3
 000C28  move.w  #$1, D1
 000C2C  moveq   #$0, D3
